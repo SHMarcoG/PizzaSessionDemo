@@ -12,7 +12,13 @@ namespace PizzaSessionDemo
 {
     public class APICaller
     {
-        public string GetCall(string uri, string urlParameters) {
+        private static string uri;
+
+        public APICaller(string uriInput)
+        {
+            uri = uriInput;
+        }
+        public string GetCall(string urlParameters) {
             using var client = new HttpClient();
             client.BaseAddress = new Uri(uri);
             // Add an Accept header for JSON format.
@@ -34,7 +40,5 @@ namespace PizzaSessionDemo
             }
 
         }
-
-        
     }
 }

@@ -9,15 +9,15 @@ using RabbitMQ.Client.Events;
 using System.Text;
 
 
-string url = "";
+string uri = "xxxx";
 string urlParameters = "gettoken?";
 
 
 // Create a new instance from the API caller class
-APICaller api = new APICaller();
+APICaller api = new APICaller(uri);
 
 // Use the API Instance and use the GetCall method
-string data = api.GetCall(url, urlParameters);
+string data = api.GetCall(urlParameters);
 
 //Convert the return jsonstring to a Model
 Token tokendata = JsonConvert.DeserializeObject<Token>(data);
